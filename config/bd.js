@@ -14,12 +14,15 @@ const promiseQuery = promisify(db.query).bind(db)
 db.getConnection((err, conn) => {
   if (err) throw err
    // Creamos las tablas si es que no existen
-  connection.query(
-    `CREATE TABLE IF NOT EXISTS listadeusuarios (
+  conn.query(
+    `CREATE TABLE IF NOT EXISTS historial (
       id INT NOT NULL AUTO_INCREMENT,
-      nombre VARCHAR(100) NOT NULL,
-      precio INT NOT NULL,
-      stock INT NOT NULL,
+      castrado VARCHAR(100) NOT NULL,
+      operado VARCHAR(100) NOT NULL,
+      discapacidad VARCHAR(100) NOT NULL,
+      rabia VARCHAR(100) NOT NULL,
+      enfermedades VARCHAR(100) NOT NULL,
+      desparasitados VARCHAR(100) NOT NULL,
       PRIMARY KEY (id)
     )`
   )
